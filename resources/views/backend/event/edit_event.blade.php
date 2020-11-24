@@ -42,7 +42,7 @@
                                         <label for="exampleInputFile">Event Image</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="event_logo">
+                                                <input type="file" class="custom-file-input" name="image" value="{{$event->image}}" >
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                             </div>
                                             <div class="input-group-append">
@@ -53,12 +53,12 @@
                                         <label>Description</label>
                                         <textarea class="form-control" rows="3" name="discription">{{$event->discription}}</textarea>
                                     </div>
-                                    <div class="form-group">
+                                  {{--  <div class="form-group">
                                         <div class="custom-control custom-checkbox">
                                             <input class="custom-control-input" type="checkbox" name="status" id="customCheckbox1">
                                             <label for="customCheckbox1" class="custom-control-label">Status </label>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>

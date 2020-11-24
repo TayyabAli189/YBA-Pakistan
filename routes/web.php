@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/home', [\App\Http\Controllers\Frontend\LawController::class,'view_home'])->name('frontend.index');
 Route::get('/about us', [\App\Http\Controllers\Frontend\AboutController::class,'about'])->name('frontend.about.about');
 Route::get('/event', [\App\Http\Controllers\Frontend\EventController::class,'event'])->name('frontend.event.event');
+Route::get('detail/{id}', [\App\Http\Controllers\Frontend\EventController::class,'detail'])->name('frontend.event.detail');
+
+//Route::get('/newpage', [\App\Http\Controllers\Frontend\NewPageController::class,'newpage'])->name('frontend.event.newpage');
 Route::get('/cotact us',[\App\Http\Controllers\Frontend\ContactUsController::class,'contact_us'])->name('frontend.contact.contact');
 
 
@@ -34,7 +37,6 @@ Route::get('add/event', [App\Http\Controllers\Backend\EventController::class,'cr
 Route::post('add/event', [App\Http\Controllers\Backend\EventController::class,'store'])->name('store.event');
 Route::get('edit/event/{id}', [App\Http\Controllers\Backend\EventController::class,'edit'])->name('edit.event');
 Route::post('update/event/{id}', [App\Http\Controllers\Backend\EventController::class,'update'])->name('update.event');
-
 
 
 //Route::resource('abouts', 'AboutController');

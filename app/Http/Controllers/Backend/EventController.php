@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\Event;
+use Illuminate\Support\Facades\Storage;
+
 class EventController extends Controller
 {
     private $event;
@@ -29,6 +31,29 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        if ($request->hasFile('image'))
+        {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+
+            $data['image'] = $name;
+        }
+
+        /*if ($request->hasFile('image')) {
+
+            $fileName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs(asset('images/events'), $fileName);
+
+            $data['image'] = $path;
+        }*/
+
+        $this->validate($request, [
+            'discription' => 'max:1000',
+        ]);
+
+
         $this->event->addEvent($data);
         return redirect()->route('listing.event'); //
     }
@@ -48,6 +73,16 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        if ($request->hasFile('image'))
+        {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+
+            $data['image'] = $name;
+        }
         $this->event->updateEvent($data,$id);
         return redirect()->route('listing.event');
     }

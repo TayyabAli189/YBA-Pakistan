@@ -6,9 +6,12 @@
 
 
 @includeIf('frontend.include.header')
+
+
 @section('content')
 
 <br>
+
 <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('images/new.jpg')}}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -58,25 +61,80 @@
         </div>
         <div class="row d-flex">
             @foreach($events as $event)
-            <div class="col-md-4 d-flex ftco-animate">
+            {{--<div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
                     <div class="text text-center">
-                        <a href="" class="block-20 img d-flex align-items-center" style="background-image: url('images/image_1.jpg');">
-                            <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
+
+                        <a href="detail/{{$event['id']}}" class="block-20 img d-flex align-items-center" target="_blank">
+
+                            <img src="{{asset('images/'.$event->image)}}" alt="">
+                           --}}{{-- <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
                                 <div class="evnt_date">
                                     {{date('d-M-Y', strtotime($event->created_at))}}
                                 </div>
-                            </div>
+                            </div>--}}{{--
+
                         </a>
                         <h3 class="heading mb-3" ><a href="#" style="color: white">{{ucwords($event->event_name)}}</a></h3>
-                        <p style="color: white">{{ucfirst($event->discription)}}</p>
+                       --}}{{-- <p style="color: white">{{ucfirst($event->discription)}}</p>--}}{{--
+
+
+
+                    </div>
+                </div>
+            </div>
+--}}
+
+                <div class="gallery">
+                    <div class="date_event">
+                        {{date('d-M-Y', strtotime($event->created_at))}}
+                    </div>
+                    <a target="_blank" href="detail/{{$event['id']}}">
+
+                        <img src="{{asset('images/'.$event->image)}}" alt="" width="600" height="400">
+                    </a>
+                    <div class="desc">{{ucwords($event->event_name)}}</div>
+
+                </div>
+
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+{{--<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @foreach($events as $event)
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+                        <div class="img align-self-stretch"  >
+                            <img src="{{asset('images/'.$event->image)}}" alt="">
+                        </div>
+                    </div>
+                    <div class="text pt-3 text-center">
+                        <h3 class="heading mb-3" ><a href="#" style="color: white">{{ucwords($event->event_name)}}</a></h3>
+
+                        <span class="position mb-2">Civil Lawyer</span>
+                        <div class="faded">
+                            <p style="color: white">{{ucfirst($event->discription)}}</p>
+                            <ul class="ftco-social text-center">
+                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
-</section>
+</section>--}}
+
 <br>
 {{--
 <section class="ftco-appointment ftco-section img" style="background-image: url({{asset('images/bg_2.jpg')}});">

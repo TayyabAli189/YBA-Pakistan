@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $fillable = [
-        'event_name','event_logo','discription','status'
+        'event_name','discription','image','status'
     ];
 
 /*    public function products()
@@ -20,6 +20,7 @@ class Event extends Model
         Event::create([
             'event_name' => $data['event_name'],
             'discription' => $data['discription'],
+            'image' => $data['image'],
             'status' => (isset($data['status']) && $data['status'] == 'on') ? true : false,
         ]);
 
@@ -29,6 +30,7 @@ class Event extends Model
         $event->update([
             'event_name' => $data['event_name'],
             'discription' => $data['discription'],
+            'image' => $data['image'],
             'status' => (isset($data['status']) && $data['status'] == 'on') ? true : false,
         ]);
 
