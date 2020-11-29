@@ -24,14 +24,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{route('frontend.index')}}" style="color: #ff8000; padding-left: 10px;" >YBA-Pakistan</a>
+        <a class="navbar-brand" href="{{url('/')}}" style="color: #ff8000; padding-left: 10px;" >YBA-Pakistan</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav" style="padding-right: 150px;">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{route('frontend.index')}}" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="{{route('frontend.about.about')}}" class="nav-link">About us</a></li>
                 <li class="nav-item"><a href="{{route('frontend.event.event')}}" class="nav-link">Events</a></li>
                 <li class="nav-item"><a href="{{route('frontend.contact.contact')}}" class="nav-link">Contact us</a></li>

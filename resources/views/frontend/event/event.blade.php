@@ -61,30 +61,6 @@
         </div>
         <div class="row d-flex">
             @foreach($events as $event)
-            {{--<div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <div class="text text-center">
-
-                        <a href="detail/{{$event['id']}}" class="block-20 img d-flex align-items-center" target="_blank">
-
-                            <img src="{{asset('images/'.$event->image)}}" alt="">
-                           --}}{{-- <div class="meta text-center mb-2 d-flex align-items-center justify-content-center">
-                                <div class="evnt_date">
-                                    {{date('d-M-Y', strtotime($event->created_at))}}
-                                </div>
-                            </div>--}}{{--
-
-                        </a>
-                        <h3 class="heading mb-3" ><a href="#" style="color: white">{{ucwords($event->event_name)}}</a></h3>
-                       --}}{{-- <p style="color: white">{{ucfirst($event->discription)}}</p>--}}{{--
-
-
-
-                    </div>
-                </div>
-            </div>
---}}
-
                 <div class="gallery">
                     <div class="date_event">
                         {{date('d-M-Y', strtotime($event->created_at))}}
@@ -96,7 +72,6 @@
                     <div class="desc">{{ucwords($event->event_name)}}</div>
 
                 </div>
-
             @endforeach
         </div>
     </div>
